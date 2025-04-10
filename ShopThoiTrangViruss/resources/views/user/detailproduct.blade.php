@@ -18,13 +18,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h4 style="color: gray;margin-top:20px;">Quantity </h4>
-                    </div>
-                    <div class="col-md-6">
                         <div class="wrapper">
                             <span class="minus">-</span>
                             <input type="text" class="num" name="quantity_cart" id="quantity_cart" value="1">
                             <span class="plus">+</span>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        
                     </div>
                 </div>
                 <button type="submit" class="btn btn-warning btn-addCart">Thêm vào giỏ hàng</button>
@@ -35,8 +36,7 @@
                 <h1>Mô tả sản phẩm</h1>
                 {{ $product->describe_product}}
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <h4>Mô tả chi tiết {{ $product->name_product  }}</h4>
                 <div class="row">
                     <div class="col-md-6" style="background: #f5f5f5;"> Xuất xứ:</div>
