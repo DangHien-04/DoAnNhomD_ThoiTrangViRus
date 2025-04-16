@@ -111,12 +111,7 @@ if (Session::get('id_user')) {
                             <!-- /Cart -->
 
                             <!-- Cart -->
-                            <div>
-                                <a class href="{{ route('order.orderIndex') }}">
-                                    <i class="fa-solid fa-file-invoice"></i>
-                                    <span>Đơn hàng</span>
-                                </a>
-                            </div>
+                   
 
                             <div>
                                 <a class href="{{ route('signout')}} ">

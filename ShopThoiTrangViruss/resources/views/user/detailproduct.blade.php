@@ -4,7 +4,7 @@
 <!-- Product section-->
 @section('content')
 <main>
-    <form method="post" class="form-detailproduct">
+<form action="{{ route('cart.addCard') }}" method="post" class="form-detailproduct">
     @csrf
     <div class="container">
         <div class="row">
