@@ -78,4 +78,6 @@ class CustomerController extends Controller
         return Redirect('login');
     }
 
+    
+
 }

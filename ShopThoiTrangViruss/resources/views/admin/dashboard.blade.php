@@ -25,21 +25,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('category.index') }}">Danh mục</a>
                     </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('manufacturer.listmanufacturer') }}">Hãng Sản Xuất</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('product.listproduct') }}">Sản Phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.orderindexAdmin') }}">Đơn Hàng</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('user.listuser') }}">Người dùng</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post.listpost') }}">Bài viết</a>
-                    </li>
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Đăng Xuất</a>
                     </li>

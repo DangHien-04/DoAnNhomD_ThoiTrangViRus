@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\User\detailsOrderController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\ManufacturerControllerUser;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\PaymentController;
 use App\Models\DetailsOrder;
@@ -15,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Admin\AdminUserController;
 
+Route::get('/manufacture', [ManufacturerControllerUser::class, 'indexmanufacture'])->name('manufacture.indexmanufacture');
+Route::get('deletemanufacturer', [ManufacturerController::class, 'deleteManufacturer'])->name('manufacturer.deletemanufacturer');
+Route::get('updatemanufacturer', [ManufacturerController::class, 'indexUpdateManufacturer'])->name('manufacturer.updateindex');
+Route::post('updatemanufacturer', [ManufacturerController::class, 'updateManufacturer'])->name('manufacturer.updateManufacturer');
+Route::get('addmanufacturer', [ManufacturerController::class, 'indexAddManufacturer'])->name('manufacturer.addmanufacturer');
+Route::post('addmanufacturer', [ManufacturerController::class, 'addManufacturer']);
+Route::get('listmanufacturer', [ManufacturerController::class, 'indexManufacturer'])->name('manufacturer.listmanufacturer');
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
+
 Route::get('category', [CategoryController::class, 'indexCategory'])->name('category.index');
 Route::get('categorycreate', [CategoryController::class, 'indexcreateCategory'])->name('category.createindex');
 Route::post('categorycreate', [CategoryController::class, 'createCategory'])->name('category.createCategory');

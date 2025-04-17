@@ -101,6 +101,12 @@
                             <?php
 if (Session::get('id_user')) {
                         ?>
+                            <div>
+                                <a class href="{{ route('manufacture.indexmanufacture') }}">
+                                <i class="fa-solid fa-industry"></i>
+                                    <span>Hãng</span>
+                                </a>
+                            </div>
                             <!-- Cart -->
                             <div>
                                 <a class href="{{ route('cart.indexCart') }}">
@@ -109,6 +115,7 @@ if (Session::get('id_user')) {
                                 </a>
                             </div>
                             <!-- /Cart -->
+
 
                             <!-- Cart -->
                    
