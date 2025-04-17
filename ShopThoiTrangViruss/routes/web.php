@@ -37,6 +37,14 @@ Route::post('addcard', [CartController::class, 'addCart'])->name('cart.addCard')
 Route::get('mycard', [CartController::class, 'indexCard'])->name('cart.indexCart');
 Route::post('mycard', [CartController::class, ''])->name('a');
 Route::get('deleteproductcard', [CartController::class, 'deleteProductCart'])->name('cart.deleteproductcart');
+
+//detai
+Route::get('myorder', [OrderController::class, 'addOrder'])->name('order.addOrder');
+Route::get('payment', [PaymentController::class, 'paymentIndex'])->name('payment.paymentindex');
+Route::get('detailsorder', [detailsOrderController::class, 'addDetailsOrder'])->name('detailsorder.addDetailsOrder');
+Route::get('orderindex',[OrderController::class, 'orderIndex'])->name('order.orderIndex');
+Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderIndex'])->name('detailsorder.detailsOrderIndex');
+
 // Register Client
 Route::get('/register',[CustomerController::class,'indexRegister']);
 Route::post('/register',[CustomerController::class,'authRegister'])->name('user.cus_register');
