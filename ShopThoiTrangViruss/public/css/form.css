@@ -1,0 +1,185 @@
+/* form.css */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 0.95em;
+    background-image: url("{{ asset('img/bg.png') }}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Cố định ảnh nền */
+}
+
+.login-form-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85); /* Màu nền nhẹ hơn */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng nhẹ */
+}
+
+.form-head {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #007bff; /* Màu tiêu đề nổi bật */
+    font-weight: bold;
+}
+
+.field-column {
+    margin-bottom: 20px; /* Tăng khoảng cách giữa các trường nhập */
+}
+
+.field-column label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.demo-input-box {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Màu nền sáng cho ô nhập */
+}
+
+.demo-input-box:focus {
+    border-color: #007bff;
+    background-color: #fff; /* Nền trắng khi focus */
+}
+
+.error-info {
+    color: red;
+    font-size: 0.9em;
+}
+
+.text-danger {
+    color: red;
+    font-size: 0.85em;
+}
+
+.btnLogin {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+.btnLogin:hover {
+    background-color: #0056b3;
+}
+
+.form-nav-row {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+.login-row p {
+    margin: 10px 0;
+}
+
+/* Cải thiện bảng cho trang danh sách người dùng */
+table {
+    margin-top: 50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Cải thiện hiệu ứng hover cho các nút trong bảng */
+.btn-primary, .btn-danger {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Navbar đẹp hơn */
+nav {
+    background-color: #217b7e;
+    padding: 12px 0;
+}
+
+.title {
+    color: white !important;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+}
+
+/* Thêm khoảng cách cho các mục trong thanh điều hướng */
+.nav-item {
+    margin-left: 20px;
+}
+
+.pagination {
+    background: white !important;
+}
+
