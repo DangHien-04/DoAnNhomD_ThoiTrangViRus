@@ -13,7 +13,7 @@
                     <h4 style="text-align: center;border-bottom: 1px solid gray;padding-bottom: 20px">Giỏ hàng của bạn
                     </h4>
                 </div>
-                <form action = "{{ route('order.addOrder') }}" method="get" class="form-cart" >
+                <form  method="get" class="form-cart" >
                 @csrf
                     @foreach($product as $item)
                     @if(!empty($item))
