@@ -17,19 +17,21 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'vu',
-            'email' => 'vu@gmail.com',
+            'name' => 'hien',
+            'email' => 'hien@gmail.com',
             'password' => Hash::make('123456'),
             'phone' => '0123456789',
             'address' => 'Đ.Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh',
+            'role' => '0',
         ]);
 
         DB::table('users')->insert([
-            'name' => 'thanh',
-            'email' => 'thanh@gmail.com',
+            'name' => 'luan',
+            'email' => 'luan@gmail.com',
             'password' => Hash::make('123456'),
             'phone' => '0123456789',
             'address' => 'Đ.Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh',
+            'role' => '0',
         ]);
         
         DB::table('users')->insert([
@@ -38,7 +40,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
             'phone' => '1278912321',
             'address' => 'Thành phố Hồ Chí Minh',
-            'role' => 'admin',
+            'role' => '1',
         ]);
     }
 }

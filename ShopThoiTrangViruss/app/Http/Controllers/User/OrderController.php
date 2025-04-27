@@ -59,4 +59,12 @@ class OrderController extends Controller
 
         return view('user.myorder', ['order' => $order]);
     }
+    
+    public function showOrder()
+    {
+        $order = Order::where('id_user', auth()->id())->orderBy('created_at', 'desc')->get();
+    
+        return view('user.myorder', compact('order')); 
+    }
+
 }

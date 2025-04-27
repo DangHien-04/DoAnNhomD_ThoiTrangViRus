@@ -16,17 +16,17 @@ class ManufacturerSeeder extends Seeder
     public function run()
     {
         DB::table('manufacturers')->insert([
-            'name_manufacturer' => 'Samsung',
+            'name_manufacturer' => 'Ao dai',
             'image_manufacturer' => '1714729075.webp',
         ]);
 
         DB::table('manufacturers')->insert([
-            'name_manufacturer' => 'IPhone',
+            'name_manufacturer' => 'So mi',
             'image_manufacturer' => '1714729152.webp',
         ]);
         
         DB::table('manufacturers')->insert([
-            'name_manufacturer' => 'Nokia',
+            'name_manufacturer' => 'Tre em',
             'image_manufacturer' => '1714729195.webp',
         ]);
     }

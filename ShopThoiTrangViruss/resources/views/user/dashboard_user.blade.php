@@ -95,50 +95,52 @@
                         <div class="header-ctn">
                             <!-- new -->
                             <div>
-                               
+
                             </div>
                             <!-- /new -->
                             <?php
-if (Session::get('id_user')) {
-                        ?>
-                            <div>
-                                <a class href="{{ route('manufacture.indexmanufacture') }}">
-                                <i class="fa-solid fa-industry"></i>
-                                    <span>Hãng</span>
-                                </a>
-                            </div>
-                            <!-- Cart -->
-                            <div>
-                                <a class href="{{ route('cart.indexCart') }}">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Giỏ hàng</span>
-                                </a>
-                            </div>
-                            <!-- /Cart -->
-
-
-                            <!-- Cart -->
-                   
-
-                            <div>
-                                <a class href="{{ route('signout')}} ">
-                                    <i class="fa-solid fa-right-from-bracket"></i>
-                                    <span>Đăng xuất</span>
-                                </a>
-                            </div>
+                            if (Session::get('id_user')) {
+                            ?>
+                                <div>
+                                    <a class href="{{ route('manufacture.indexmanufacture') }}">
+                                        <i class="fa-solid fa-industry"></i>
+                                        <span>Hãng</span>
+                                    </a>
+                                </div>
+                                <!-- Cart -->
+                                <div>
+                                    <a class href="{{ route('cart.indexCart') }}">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span>Giỏ hàng</span>
+                                    </a>
+                                </div>
+                                <!-- /Cart -->
+                                <div>
+                                    <a class href="{{ route('order.orderIndex') }}">
+                                        <i class="fa-solid fa-file-invoice"></i>
+                                        <span>Đơn hàng</span>
+                                    </a>
+                                </div>
+                                <!-- Cart -->
+                                <div>
+                                    <a class href="{{ route('signout')}} ">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <span>Đăng xuất</span>
+                                    </a>
+                                </div>
 
                             <?php
-} else {
-                        ?>
-                            <div>
-                                <a class href="{{ route('user.indexlogin') }}">
-                                    <i class="fa-solid fa-right-to-bracket"></i>
-                                    <span>Đăng nhập</span>
-                                </a>
-                            </div>
+                            } else {
+                            ?>
+                                <div>
+                                    <a class href="{{ route('user.indexlogin') }}">
+                                        <i class="fa-solid fa-right-to-bracket"></i>
+                                        <span>Đăng nhập</span>
+                                    </a>
+                                </div>
                             <?php
-}
-                    ?>
+                            }
+                            ?>
                             <!-- /Cart -->
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">

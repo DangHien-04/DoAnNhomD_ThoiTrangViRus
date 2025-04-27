@@ -1,4 +1,4 @@
-@extends('user.dashboard_user')
+@extends('admin.dashboard')
 
 
 <!-- Product section-->
@@ -10,48 +10,46 @@
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="table-wrapper">
                 <div class="table-title">
-                    <h4 style="text-align: center;border-bottom: 1px solid gray;padding-bottom: 20px">Đơn Hàng Của Bạn
+                    <h4 style="text-align: center;border-bottom: 1px solid gray;padding-bottom: 20px">Chi Tiết Đơn Hàng
                     </h4>
                 </div>
-                    @foreach($order as $item)
-                    @if(!empty($item))
-                    <div class="card" id="product-item">
-                        <div class="card-body">
-                            <div class="product-item">
-                                <div class="row">
-                                    <div class="col-md-8 mx-5">
-                                        <div class="product-info">
-                                            <span class="d-flex">
-                                                    Mã đơn hàng: {{ $item->id_order }}
-                                            </span>
-                                            <span>Giá: {{ $item->total_order }}VNĐ</span><br>
-                                            <span>Địa chỉ nhận hàng: {{ $item->address }}</span>
-                                            <br>
-                                            <span>Ngày đặt: {{ $item->created_at }}</span>
+                    <form action="{{ route('admin.orderindexAdmin') }}">
+                        @foreach($order as $item)
+                        @if(!empty($item))
+                        <div class="card" id="product-item">
+                            <div class="card-body">
+                                <div class="product-item">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="image-product">
+                                                <img style="height:250px;" src="{{ asset('uploads/productimage/' . $item->image_address_product) }}"
+                                                    alt="">
+                                            </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="product-info">
+                                                <span class="d-flex"><a href="#">
+                                                        <h3>{{ $item->name_product }}</h3>
+                                                    </a></span>
+                                                <span class="price">Giá: {{ $item->price_product }}VNĐ</span>
+                                                <br>
+                                                <span>Số lượng đặt: {{ $item->quantity_detailsorder }}</span>
+                                            </div>
 
+                                        </div>                                   
                                     </div>
-                                     <div class="col-md-2">
-                                        <div class="quantity">
-                                            <a href="{{ route('detailsorder.detailsOrderIndex', ['id_order' => $item->id_order, 'id_user' => $item->id_user]) }}"
-                                                class="btn btn-danger">Xem chi tiết</i></a>
-                                        </div>
-                                    </div>                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endif
-                    @endforeach
+                        @endif
+                        @endforeach  
+                        <div class="col-md-2 mt-5"><button class="btn btn-danger">Quay Lại</button></div> 
+                    </form>                             
             </div>
         </div>
 </main>
 
 <style>
-.cart-form{
-    margin-top: 20px;
-}
-
 .product-info {
     margin-bottom: 20px;
     margin-top: 20px;
