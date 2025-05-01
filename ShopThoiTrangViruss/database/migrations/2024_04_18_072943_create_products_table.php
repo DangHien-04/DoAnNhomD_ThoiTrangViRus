@@ -24,14 +24,11 @@ return new class extends Migration
             $table->string('image_address_product');
             $table->text('describe_product');
             $table->string('specifications');
-<<<<<<< HEAD
-            $table->timestamps();
-=======
+
             $table->string('sizes')->nullable(); // Thêm cột sizes
             $table->string('colors')->nullable(); // Thêm cột colors
             $table->timestamps();
 
->>>>>>> chitietsanpham
             
         });
     }
