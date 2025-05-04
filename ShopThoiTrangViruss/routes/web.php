@@ -37,7 +37,13 @@ Route::post('addcard', [CartController::class, 'addCart'])->name('cart.addCard')
 Route::get('mycard', [CartController::class, 'indexCard'])->name('cart.indexCart');
 Route::post('mycard', [CartController::class, ''])->name('a');
 Route::get('deleteproductcard', [CartController::class, 'deleteProductCart'])->name('cart.deleteproductcart');
-
+//san pham 
+Route::get('listproduct', [ProductController::class, 'indexProduct'])->name('product.listproduct');
+Route::get('addproduct', [ProductController::class, 'indexAddProduct'])->name('product.indexaddproduct');
+Route::post('addproduct', [ProductController::class, 'addProduct'])->name('product.addproduct');
+Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('product.deleteproduct');
+Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
+Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
 //thanh toan
 Route::get('myorder', [OrderController::class, 'addOrder'])->name('order.addOrder');
 Route::post('myorder', [OrderController::class, 'addOrder'])->name('order.addOrder');
