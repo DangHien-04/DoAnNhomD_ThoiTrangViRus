@@ -126,7 +126,7 @@
 .product-img {
     position: relative;
     overflow: hidden;
-    background-color: #f9f9f9;
+    background-color:rgb(255, 255, 255);
     height: 250px;
     display: flex;
     align-items: center;

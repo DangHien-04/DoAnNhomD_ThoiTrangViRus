@@ -11,6 +11,7 @@ use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ManufacturerControllerUser;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\PaymentController;
+use App\Http\Controllers\User\ProductControllerUser; // Ensure this class exists in the specified namespace
 use App\Models\DetailsOrder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
@@ -79,3 +80,7 @@ Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])
 Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderIndex'])->name('detailsorder.detailsOrderIndex');
 Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
 Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
+
+
+//search product
+Route::get('/searchProduct', [ProductControllerUser::class, 'searchProduct'])->name('user.searchProduct');

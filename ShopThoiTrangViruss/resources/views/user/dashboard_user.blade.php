@@ -82,10 +82,22 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-5">
                         <div class="header-search">
-                            <form>
-                                <input class="input-product" placeholder="Nhập từ khóa">
-                                <button class="search-btn">Tìm kiếm</button>
+                            <form action="{{ route('user.searchProduct') }}" method="GET" class="d-flex justify-content-center mb-4" style="max-width: 600px; margin: auto;">
+                                <div class="input-group shadow-sm">
+                                    <input
+                                        type="text"
+                                        name="keyword"
+                                        class="form-control rounded-start-pill input-product"
+                                        placeholder="🔍 Tìm kiếm sản phẩm..."
+                                        aria-label="Tìm kiếm"
+                                        required>
+                                    <button class="btn btn-success rounded-end-pill px-4 search-btn" type="submit">
+                                        Tìm kiếm
+                                    </button>
+                                </div>
                             </form>
+
+
                         </div>
                     </div>
                     <!-- /SEARCH BAR -->
