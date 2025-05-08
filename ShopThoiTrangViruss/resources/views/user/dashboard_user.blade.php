@@ -39,6 +39,9 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -113,11 +116,20 @@
                             <?php
                             if (Session::get('id_user')) {
                             ?>
-                                <div>
-                                    <a class href="{{ route('manufacture.indexmanufacture') }}">
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-industry"></i>
-                                        <span>Hãng</span>
+                                        <span>Nhà Sản Xuất</span>
                                     </a>
+                                    <ul class="dropdown-menu" aria-labelledby="manufacturerDropdown">
+                                        @foreach ($manufacturers as $manufacturer)
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('manufacturer.products', $manufacturer->id_manufacturer) }}">
+                                                {{ $manufacturer->name_manufacturer }}
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                                 <!-- Cart -->
                                 <div>

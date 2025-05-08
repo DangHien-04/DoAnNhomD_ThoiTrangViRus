@@ -82,6 +82,4 @@ class ManufacturerController extends Controller
         $manufacturer->save();
         return redirect()->route('manufacturer.listmanufacturer');
     }
-
-    
 }

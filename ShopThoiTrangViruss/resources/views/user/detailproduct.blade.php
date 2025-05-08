@@ -1,5 +1,3 @@
-
-
 @extends('user.dashboard_user')
 
 
@@ -22,7 +20,7 @@
             <div class="col-md-6 product-details">
                 <input type="hidden" name="id_product" value="{{ $product->id_product }}">
                 <h1 class="product-title">{{ $product->name_product }}</h1>
-                <h4 class="product-price">{{ $product->price_product }} VND</h4>
+                <h4 class="product-price">{{ number_format($product->price_product, 0, ',', '.') }} VND</h4>
                 <p class="product-stock">Kho: {{ $product->quantity_product }}</p>
                 
                 <!-- Size Selection -->

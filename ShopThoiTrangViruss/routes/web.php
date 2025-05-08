@@ -18,12 +18,14 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Admin\AdminUserController;
 
 Route::get('/manufacture', [ManufacturerControllerUser::class, 'indexmanufacture'])->name('manufacture.indexmanufacture');
+Route::get('listmanufacturer', [ManufacturerController::class, 'indexManufacturer'])->name('manufacturer.listmanufacturer');
+Route::get('addmanufacturer', [ManufacturerController::class, 'indexAddManufacturer'])->name('manufacturer.addmanufacturer');
+Route::post('addmanufacturer', [ManufacturerController::class, 'addManufacturer']);
 Route::get('deletemanufacturer', [ManufacturerController::class, 'deleteManufacturer'])->name('manufacturer.deletemanufacturer');
 Route::get('updatemanufacturer', [ManufacturerController::class, 'indexUpdateManufacturer'])->name('manufacturer.updateindex');
 Route::post('updatemanufacturer', [ManufacturerController::class, 'updateManufacturer'])->name('manufacturer.updateManufacturer');
-Route::get('addmanufacturer', [ManufacturerController::class, 'indexAddManufacturer'])->name('manufacturer.addmanufacturer');
-Route::post('addmanufacturer', [ManufacturerController::class, 'addManufacturer']);
-Route::get('listmanufacturer', [ManufacturerController::class, 'indexManufacturer'])->name('manufacturer.listmanufacturer');
+Route::get('/manufacturer/{id}', [ManufacturerControllerUser::class, 'showProductsByManufacturer'])->name('manufacturer.products');
+
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
 
 Route::get('category', [CategoryController::class, 'indexCategory'])->name('category.index');
