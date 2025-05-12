@@ -21,6 +21,7 @@ class Product extends Model
         'describe_product',
         'specifications',
         'sizes',
-        'colors'
+        'colors',
+        'purchased' 
     ];
 }

@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder
 
         DB::table('products')->insert([
             'id_category' => '2',
-            'id_manufacturer' => '3',
+            'id_manufacturer' => '2',
             'name_product' => 'Áo dài cách tân cao cấp',
             'quantity_product' => '500',
             'price_product' => '4090000',
@@ -42,8 +42,8 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'id_category' => '1',
-            'id_manufacturer' => '2',
+            'id_category' => '3',
+            'id_manufacturer' => '3',
             'name_product' => 'Áo dài thiết kế đặc biệt',
             'quantity_product' => '300',
             'price_product' => '5090000',

@@ -27,6 +27,7 @@ return new class extends Migration
 
             $table->string('sizes')->nullable(); // Thêm cột sizes
             $table->string('colors')->nullable(); // Thêm cột colors
+            $table->integer('purchased')->default(0);
             $table->timestamps();
 
             

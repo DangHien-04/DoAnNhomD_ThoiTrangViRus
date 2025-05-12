@@ -7,6 +7,7 @@ use App\Models\DetailsOrder;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product; 
 use Illuminate\Support\Facades\DB;
 
 class DetailsOrderController extends Controller
@@ -29,11 +30,19 @@ class DetailsOrderController extends Controller
 
         foreach($cart as $value)
         {
+            // Tạo chi tiết đơn hàng
             $detailOrder = DetailsOrder::create([
                 'id_order' => $id_order,
                 'id_product' => $value->id_product,
                 'quantity_detailsorder' => $value->quantity_product,
             ]);
+
+            // Cập nhật số lượt mua cho sản phẩm
+            $product = Product::find($value->id_product);
+            if ($product) {
+                $product->purchased += $value->quantity_product;
+                $product->save();
+            }
         }
 
         $order = Order::where('id_order', $id_order)->first();

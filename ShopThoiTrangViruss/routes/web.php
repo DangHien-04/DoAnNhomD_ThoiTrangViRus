@@ -85,4 +85,5 @@ Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetails
 
 
 //search product
+Route::get('/filterProduct', [ProductControllerUser::class, 'filterProduct'])->name('user.filterProduct');
 Route::get('/searchProduct', [ProductControllerUser::class, 'searchProduct'])->name('user.searchProduct');

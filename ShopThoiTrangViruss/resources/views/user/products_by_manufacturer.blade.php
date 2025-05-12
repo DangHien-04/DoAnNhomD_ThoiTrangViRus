@@ -157,9 +157,7 @@
                                    class="btn btn-primary flex-grow-1">
                                     <i class="fas fa-eye me-1"></i> Chi tiết
                                 </a>
-                                <button type="button" class="btn btn-outline-primary quick-add-to-cart" data-product-id="{{ $product->id_product }}">
-                                    <i class="fas fa-cart-plus"></i>
-                                </button>
+                               
                             </div>
                         </div>
                     </div>
