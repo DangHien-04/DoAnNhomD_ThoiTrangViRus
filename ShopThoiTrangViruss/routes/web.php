@@ -38,8 +38,10 @@ Route::get('/Home', [HomeController::class, 'indexHome'])->name('home.index');
 Route::get('detailproduct', [HomeController::class, 'indexDetailProduct'])->name('product.indexDetailproduct');
 Route::post('addcard', [CartController::class, 'addCart'])->name('cart.addCard');
 Route::get('mycard', [CartController::class, 'indexCard'])->name('cart.indexCart');
-Route::post('mycard', [CartController::class, ''])->name('a');
+Route::post('mycard', [CartController::class, 'updateCart'])->name('cart.updateCart');
 Route::get('deleteproductcard', [CartController::class, 'deleteProductCart'])->name('cart.deleteproductcart');
+Route::get('cart/count', [CartController::class, 'getCount'])->name('cart.getCount');
+Route::get('order/count', [OrderController::class, 'getCount'])->name('order.getCount');
 //san pham 
 Route::get('listproduct', [ProductController::class, 'indexProduct'])->name('product.listproduct');
 Route::get('addproduct', [ProductController::class, 'indexAddProduct'])->name('product.indexaddproduct');
@@ -79,7 +81,6 @@ route::get('/search',[AdminUserController::class,'searchUser'])->name('user.sear
 
 Route::get('orderindexAdmin',[AdminOrderController::class, 'orderindexAdmin'])->name('admin.orderindexAdmin');
 Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])->name('admin.adminSearchOrder');
-Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderIndex'])->name('detailsorder.detailsOrderIndex');
 Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
 Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
 

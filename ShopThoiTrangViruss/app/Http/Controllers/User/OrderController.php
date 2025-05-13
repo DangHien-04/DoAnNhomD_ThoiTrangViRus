@@ -67,4 +67,14 @@ class OrderController extends Controller
         return view('user.myorder', compact('order')); 
     }
 
+    public function getCount()
+    {
+        if (!session('cart') || !isset(session('cart')['user_id'])) {
+            return response()->json(['count' => 0]);
+        }
+
+        $orderCount = Order::where('id_user', session('cart')['user_id'])->count();
+        return response()->json(['count' => $orderCount]);
+    }
+
 }

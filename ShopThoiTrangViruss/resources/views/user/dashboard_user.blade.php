@@ -136,6 +136,7 @@
                                     <a class href="{{ route('cart.indexCart') }}">
                                         <i class="fa fa-shopping-cart"></i>
                                         <span>Giỏ hàng</span>
+                                        <span class="cart-badge" id="header-cart-count">{{ $cartCount }}</span>
                                     </a>
                                 </div>
                                 <!-- /Cart -->
@@ -143,6 +144,7 @@
                                     <a class href="{{ route('order.orderIndex') }}">
                                         <i class="fa-solid fa-file-invoice"></i>
                                         <span>Đơn hàng</span>
+                                        <span class="order-badge" id="header-order-count">{{ $orderCount }}</span>
                                     </a>
                                 </div>
                                 <!-- Cart -->
@@ -218,6 +220,61 @@
     .header-ctn {
         padding-right: 50px;
     }
+
+    /* Cart Badge Styles */
+    .cart-badge, .order-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: #ff523b;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        min-width: 18px;
+        text-align: center;
+    }
+
+    .header-ctn > div {
+        position: relative;
+        display: inline-block;
+    }
 </style>
+
+<script>
+    // Cập nhật số lượng giỏ hàng và đơn hàng khi trang được tải
+    $(document).ready(function() {
+        updateCartCount();
+        updateOrderCount();
+    });
+
+    // Hàm cập nhật số lượng sản phẩm trong giỏ hàng
+    function updateCartCount() {
+        $.ajax({
+            url: "{{ route('cart.getCount') }}",
+            method: 'GET',
+            success: function(response) {
+                $('#header-cart-count').text(response.count);
+            }
+        });
+    }
+
+    // Hàm cập nhật số lượng đơn hàng
+    function updateOrderCount() {
+        $.ajax({
+            url: "{{ route('order.getCount') }}",
+            method: 'GET',
+            success: function(response) {
+                $('#header-order-count').text(response.count);
+            }
+        });
+    }
+
+    // Cập nhật số lượng sau mỗi 30 giây
+    setInterval(function() {
+        updateCartCount();
+        updateOrderCount();
+    }, 30000);
+</script>
 
 </html>

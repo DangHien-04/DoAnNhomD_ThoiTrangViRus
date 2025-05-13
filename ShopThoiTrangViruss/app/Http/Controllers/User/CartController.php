@@ -29,24 +29,15 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
-        // $data = $request->all();
-        // $product = Product::where('id_product', $data['id_product'])->first();
-        // $total_card = $data['quantity_card'] * $product->price_product;
-        // Cart::create([
-        //     'id_user' => session('cart')['user_id'],
-        //     'id_product' => $product->id_product,
-        //     'quantity_product' => $data['quantity_card'],
-        //     'total_cart' => $total_card,
-        // ]);
-
-
         $data = $request->all();
         $product = Product::where('id_product', $data['id_product'])->first();
         $total_cart = $data['quantity_cart'] * $product->price_product;
+        
         // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         $carts = Cart::where('id_user', session('cart')['user_id'])
             ->where('id_product', $product->id_product)
             ->first();
+            
         if ($carts) {
             // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng và tổng giá
             $carts->quantity_product += $data['quantity_cart'];
@@ -61,9 +52,27 @@ class CartController extends Controller
                 'total_cart' => $total_cart,
             ]);
         }
-        return redirect()->route('home.index');
+
+        // Lấy tổng số lượng sản phẩm trong giỏ hàng
+        $cartCount = Cart::where('id_user', session('cart')['user_id'])->sum('quantity_product');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Thêm vào giỏ hàng thành công',
+            'cartCount' => $cartCount,
+            'redirect' => route('cart.indexCart')
+        ]);
     }
 
+    public function getCount()
+    {
+        if (!session('cart') || !isset(session('cart')['user_id'])) {
+            return response()->json(['count' => 0]);
+        }
+
+        $cartCount = Cart::where('id_user', session('cart')['user_id'])->sum('quantity_product');
+        return response()->json(['count' => $cartCount]);
+    }
 
     public function deleteProductCart(Request $request)
     {
