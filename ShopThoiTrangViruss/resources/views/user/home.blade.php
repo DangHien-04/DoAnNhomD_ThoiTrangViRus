@@ -35,6 +35,14 @@
                                 <h4 class="product-name">
                                     <a href="{{ route('product.indexDetailproduct', ['id' => $get6newproduct->id_product]) }}">{{ $get6newproduct->name_product }}</a>
                                 </h4>
+                                <h5 class="product-manufacturer">
+                                    @foreach($productsWithManufacturers as $productsWithManufacturer)
+                                        @if($get6newproduct->id_manufacturer == $productsWithManufacturer->id_manufacturer)
+                                            {{ $productsWithManufacturer->name_manufacturer }}
+                                            @break
+                                        @endif
+                                    @endforeach
+                                </h5>
                                 <h4 class="product-price">{{ number_format($get6newproduct->price_product, 0, ',', '.') }} VNĐ</h4>
                             </div>
                         </div>
@@ -78,6 +86,14 @@
                             <h4 class="product-name">
                                 <a href="{{ route('product.indexDetailproduct', ['id' => $product->id_product]) }}">{{ $product->name_product }}</a>
                             </h4>
+                            <h5 class="product-manufacturer">
+                                @foreach($productsWithManufacturers as $productsWithManufacturer)
+                                    @if($product->id_manufacturer == $productsWithManufacturer->id_manufacturer)
+                                        {{ $productsWithManufacturer->name_manufacturer }}
+                                        @break
+                                    @endif
+                                @endforeach
+                            </h5>
                             <h4 class="product-price">{{ number_format($product->price_product, 0, ',', '.') }} VNĐ</h4>
                         </div>
                     </div>
@@ -96,48 +112,67 @@
 /* General Styles */
 .section-title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .section-title .title {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 700;
     color: #333;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
 }
+
+.section-title .title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #ff523b;
+}
+
 .col-md-3.col-sm-6 {
-    margin-bottom: 20px; /* Thêm khoảng cách giữa các hàng sản phẩm */
+    margin-bottom: 30px;
 }
+
 .product-card {
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: none;
+    border-radius: 15px;
     overflow: hidden;
     margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     height: 100%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .product-img {
     position: relative;
     overflow: hidden;
-    background-color:rgb(255, 255, 255);
-    height: 250px;
+    background-color: #fff;
+    height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .product-img img {
     width: auto;
     height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .product-card:hover .product-img img {
@@ -149,14 +184,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 82, 59, 0.9);
     color: #fff;
-    font-size: 20px;
-    padding: 10px 15px;
+    font-size: 18px;
+    padding: 12px 18px;
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
     text-decoration: none;
+    z-index: 2;
 }
 
 .product-card:hover .product-detail-icon {
@@ -165,43 +201,64 @@
 }
 
 .product-detail-icon:hover {
-    background-color: #ff523b;
+    background-color: #333;
     color: #fff;
 }
 
 .product-info {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
+    background: #fff;
 }
 
 .product-category {
-    font-size: 12px;
+    font-size: 13px;
     color: #888;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-name {
+    margin: 10px 0;
 }
 
 .product-name a {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 44px;
 }
 
 .product-name a:hover {
     color: #ff523b;
 }
 
+.product-manufacturer {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+    font-style: italic;
+    font-weight: 500;
+}
+
 .product-price {
-    font-size: 16px;
+    font-size: 18px;
     color: #ff523b;
-    font-weight: bold;
-    margin-top: 5px;
+    font-weight: 700;
+    margin-top: 10px;
 }
 
 .pagination-wrapper {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .pagination-wrapper .pagination {
@@ -215,27 +272,28 @@
 
 .pagination-wrapper .pagination li a {
     color: #333;
-    padding: 8px 12px;
+    padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .pagination-wrapper .pagination li a:hover {
     background-color: #ff523b;
     color: #fff;
+    border-color: #ff523b;
 }
 
 /* Slick Carousel Customization */
 .newproduct-slider {
     position: relative;
-    padding: 0 25px;
-    margin-bottom: 30px;
+    padding: 0 30px;
+    margin-bottom: 40px;
 }
 
 .product-slide {
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 .slick-prev, 
@@ -246,15 +304,16 @@
     background-color: #ff523b;
     color: #fff;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     display: flex !important;
     align-items: center;
     justify-content: center;
     z-index: 1;
     cursor: pointer;
     border: none;
-    font-size: 16px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
 .slick-prev {
@@ -268,6 +327,7 @@
 .slick-prev:hover, 
 .slick-next:hover {
     background-color: #333;
+    transform: translateY(-50%) scale(1.1);
 }
 
 .slick-prev:focus, 
@@ -276,11 +336,11 @@
 }
 
 .slick-slide {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .slick-list {
-    margin: 0 -10px;
+    margin: 0 -15px;
 }
 
 .slick-track {
@@ -291,6 +351,45 @@
 .slick-disabled {
     opacity: 0.5;
     cursor: default;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-img {
+        height: 220px;
+    }
+    
+    .product-name a {
+        font-size: 14px;
+        height: 40px;
+    }
+    
+    .product-price {
+        font-size: 16px;
+    }
+    
+    .section-title .title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-img {
+        height: 200px;
+    }
+    
+    .product-name a {
+        font-size: 13px;
+        height: 36px;
+    }
+    
+    .product-price {
+        font-size: 15px;
+    }
+    
+    .section-title .title {
+        font-size: 20px;
+    }
 }
 </style>
 

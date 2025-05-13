@@ -20,11 +20,9 @@ class ProductControllerUser extends Controller
             return redirect()->back()->with('error', 'Vui lòng nhập từ khóa để tìm kiếm.');
         }
 
-        // Tìm kiếm sản phẩm theo tên và mô tả
-        $products = Product::where(function($query) use ($keyword) {
-            $query->where('name_product', 'LIKE', '%' . $keyword . '%')
-                  ->orWhere('describe_product', 'LIKE', '%' . $keyword . '%');
-        })->paginate(12);
+        // Tìm kiếm sản phẩm chỉ theo tên
+        $products = Product::where('name_product', 'LIKE', '%' . $keyword . '%')
+                          ->paginate(12);
 
         // Lấy danh mục và hãng sản xuất để hiển thị trong bộ lọc
         $categories = Category::all();
@@ -48,12 +46,9 @@ class ProductControllerUser extends Controller
         // Khởi tạo query
         $query = Product::query();
         
-        // Tìm kiếm theo keyword nếu có
+        // Tìm kiếm theo keyword nếu có - chỉ tìm theo tên sản phẩm
         if (!empty($keyword)) {
-            $query->where(function($q) use ($keyword) {
-                $q->where('name_product', 'like', '%' . $keyword . '%')
-                  ->orWhere('describe_product', 'like', '%' . $keyword . '%');
-            });
+            $query->where('name_product', 'like', '%' . $keyword . '%');
         }
         
         // Lọc theo danh mục

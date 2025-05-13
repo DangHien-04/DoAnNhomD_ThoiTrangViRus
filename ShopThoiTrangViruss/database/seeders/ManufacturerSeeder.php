@@ -17,17 +17,17 @@ class ManufacturerSeeder extends Seeder
     {
         DB::table('manufacturers')->insert([
             'name_manufacturer' => 'Chanel',
-            'image_manufacturer' => '1746634690.webp',
+            'image_manufacturer' => '1746634690.jpg',
         ]);
 
         DB::table('manufacturers')->insert([
             'name_manufacturer' => 'Evisu',
-            'image_manufacturer' => '1746634699.webp',
+            'image_manufacturer' => '1746634699.jpg',
         ]);
         
         DB::table('manufacturers')->insert([
             'name_manufacturer' => 'Gucci',
-            'image_manufacturer' => '1746684014.webp',
+            'image_manufacturer' => '1746684014.jpg',
         ]);
     }
 }

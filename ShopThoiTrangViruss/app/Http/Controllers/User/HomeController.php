@@ -48,11 +48,15 @@ class HomeController extends Controller
         $colors = explode(',', $product->colors);
         $sizes = explode(',', $product->sizes);
 
+        // Lấy thông tin hãng sản xuất
+        $manufacturer = Manufacturer::where('id_manufacturer', $product->id_manufacturer)->first();
+
         return view('user.detailproduct', [
             'specifications' => $specificationArray,
             'product' => $product,
             'colors' => $colors,
-            'sizes' => $sizes
+            'sizes' => $sizes,
+            'manufacturer' => $manufacturer
         ]);
     }
 
